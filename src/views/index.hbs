@@ -1,0 +1,69 @@
+
+
+
+
+<div class="col-md-6 offset-md-3">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h2>Establecimientos Registrados</h2>
+        </div>
+        <div class="card-body">
+
+            {{#if perroas}}
+            <ul class="list-group">
+                {{#each perroas}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{nombre}}-
+                    {{telf}}-
+                    {{cod}}
+
+                    <a href="/delete-contact/{{@key}}" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                    <a href="/edit/{{@key}}" class="btn btn-danger">
+                        Editar
+                    </a>
+                    <a href="/redireccion"  class="btn btn-danger">
+                        Entrar
+                    </a>
+                </li>
+
+                {{/each}}
+
+
+            </ul>
+                
+            {{else}}
+
+            <p>No hay sitios registrados aùn</p>
+            {{/if }}
+       
+        </div>
+        <div class="card-footer">
+            <p>
+            <h2>Registrar Establecimiento</h2>
+            </p>
+
+            <form action="/new-esta" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Nombre del establecimiento" class="form-control" autofocus>
+                </div>
+                 <div class="form-group">
+                    <input type="text" name="telf" placeholder="Telefono" class="form-control" >
+                </div>
+                 <div class="form-group">
+                    <input type="text" name="cod" placeholder="Codigo del establecimiento" class="form-control" >
+                </div>
+                <button class="btn btn-primary btn-block">
+
+                    Agregar
+
+                </button>
+               
+            </form>
+        </div>
+    </div>
+
+</div>
